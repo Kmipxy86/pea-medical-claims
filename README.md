@@ -64,7 +64,7 @@ cp .env.example .env          # แก้ JWT_SECRET และค่าอื่
 docker compose up --build
 ```
 
-เปิด http://localhost:3000 โดยค่าเริ่มต้น `DEV_LOGIN=true` จะมีฟอร์ม **"เข้าระบบแบบทดสอบ"** ให้เลือกบทบาทได้เลย
+เปิด http://localhost:3001 โดยค่าเริ่มต้น `DEV_LOGIN=true` จะมีฟอร์ม **"เข้าระบบแบบทดสอบ"** ให้เลือกบทบาทได้เลย
 จึงลองครบทุกบทบาทได้โดยยังไม่ต้องตั้งค่า Google
 
 ## ตั้งค่า Google Sign-in
@@ -74,7 +74,7 @@ docker compose up --build
    - ถ้าใช้ Google Workspace ขององค์กร ให้เลือก *Internal*
    - กรอกชื่อแอปและอีเมลติดต่อ
 3. ไปที่ **Credentials → Create credentials → OAuth client ID** แล้วเลือกชนิด **Web application**
-4. ที่ **Authorized JavaScript origins** ใส่ `http://localhost:3000` และโดเมนจริง เช่น `https://claims.example.com`
+4. ที่ **Authorized JavaScript origins** ใส่ `http://localhost:3001` และโดเมนจริง เช่น `https://claims.example.com`
    (ไม่ต้องใส่ redirect URI เพราะใช้แบบ popup)
 5. นำ Client ID ไปใส่ใน `.env`
 
@@ -104,7 +104,7 @@ JWT_SECRET=$(openssl rand -base64 48) DEV_LOGIN=true go run .
 # frontend (อีกหน้าต่างหนึ่ง)
 cd frontend
 npm install
-npm run dev                 # http://localhost:3000
+npm run dev                 # http://localhost:3001
 ```
 
 ทดสอบ: `cd backend && go test ./...` และ `cd frontend && npm run build`

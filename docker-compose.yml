@@ -1,4 +1,4 @@
-# รันทั้งระบบ: docker compose up --build  แล้วเปิด http://localhost:3000
+# รันทั้งระบบ: docker compose up --build  แล้วเปิด http://localhost:3001
 services:
   db:
     image: postgres:16-alpine
@@ -30,7 +30,7 @@ services:
       args:
         API_URL: http://backend:8080
     ports:
-      - "3000:3000"
+      - "3001:3000"
     depends_on:
       - backend
 
